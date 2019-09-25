@@ -11,7 +11,7 @@ conn = cx_Oracle.connect(user='system',password='manager',dsn='st1719')
 cursor = conn.cursor()
 
 
-ret = cursor.execute("""select sum(t.amount) as amount from stdba.divi_time_stat t where t.work_date=trunc(sysdate) order by t.interval""")
+ret = cursor.execute("""sql""")
 
 #content=cursor.getColumnIndex("amount")
 content=cursor.fetchone()
@@ -19,14 +19,14 @@ cursor.close()
 conn.close()
 
 def send_message(content):
-    url = 'https://oapi.dingtalk.com/robot/send?access_token=e4a66d0a0a158cd4441b9b84f35fd9d5981d0f209175d437776f123325a058ed'
+    url = ''
     pagrem = {
         "msgtype": "text",
         "text": {
         "content": content
     },
     "at": {
-         "isAtAll": False     #@È«Ìå³ÉÔ±£¨ÔÚ´Ë¿ÉÉèÖÃ@ÌØ¶¨Ä³ÈË£©
+         "isAtAll": False     #@å…¨ä½“æˆå‘˜ï¼ˆåœ¨æ­¤å¯è®¾ç½®@ç‰¹å®šæŸäººï¼‰
     }
     }
     headers = {
@@ -36,7 +36,7 @@ def send_message(content):
 
 def index():  
     today = datetime.date.today()
-    send_message(content=str(today)+"¶«º£µêµ±Ç°Òµ¼¨Îª: "+format(content))
+    send_message(content=str(today)+"test"+format(content))
 if __name__ == '__main__':
    index() 
   #while True:
