@@ -1,0 +1,24 @@
+#!/usr/bin/env python
+
+# _*_ coding:utf-8 _*_
+
+import json
+
+import logging
+
+import requests
+
+
+from dingtalkchatbot.chatbot import DingtalkChatbot 
+if __name__ == '__main__':
+ 
+    webhook = 'Url'
+
+    at_mobiles = ['Iphone Number']
+
+    xiaoding = DingtalkChatbot(webhook)
+
+    xiaoding.send_text(msg='我就是小丁，小丁就是我！', is_at_all=True)  #Sent Msg
+    #xiaoding.send_text(msg='我就是小丁，小丁就是我！', at_mobiles=at_mobiles) #Sent Msg
+    #xiaoding.send_link(title='iOS测试包上传成功,点击链接去下载', text="test", message_url='https://www.pgyer.com/FKAk')  #Sent URL
+    #xiaoding.send_image(pic_url='http://137.23.32.155:8080/201909/%201719001%202019-09-20%20200611.JPG') #Sent Pic
