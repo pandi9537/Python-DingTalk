@@ -1,7 +1,7 @@
 ﻿import requests,json,datetime,time
 import xlrd
 def send_message(content):
-    url = 'https://oapi.dingtalk.com/robot/send?access_token=e4a66d0a0a158cd4441b9b84f35fd9d5981d0f209175d437776f123325a058ed'
+    url = ''
     pagrem = {
         "msgtype": "text",
         "text": {
