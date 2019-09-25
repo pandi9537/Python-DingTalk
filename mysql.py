@@ -5,14 +5,14 @@ import time
 import datetime
 t=time.strftime("%Y-%m-%d", time.localtime())
 coon = pymysql.connect(
-    host = '127.0.0.1',user = 'root',passwd = 'auchan',
-    port = 3306,db = 'rt-mart',charset = 'utf8'
-    #port必须写int类型
-    #charset必须写utf8，不能写utf-8
+    host = '127.0.0.1',user = 'root',passwd = 'password',
+    port = 3306,db = 'databasename',charset = 'utf8'
+    #port蹇呴』鍐檌nt绫诲瀷
+    #charset蹇呴』鍐檜tf8锛屼笉鑳藉啓utf-8
 )
-cur = coon.cursor()  #建立游标
-cur.execute("select * from rf_information as t1,(select max(rtime),rcode,rpath from rf_records group by rcode)as t where t1.rcode=t.rcode and t1.rstate='领用'and datediff(current_date(),rtime)>=2;")  #查询数据
-res = cur.fetchall()    #获取结果
+cur = coon.cursor()  #寤虹珛娓告爣
+cur.execute("sql;")  #鏌ヨ鏁版嵁
+res = cur.fetchall()    #鑾峰彇缁撴灉
 count=0
 for row in res:
   rf=row[1]
@@ -20,11 +20,11 @@ for row in res:
   rP=row[8]
   print(rf,rN,rP)
 
-cur.close()     #关闭游标
-coon.close()    #关闭连接
+cur.close()     #鍏抽棴娓告爣
+coon.close()    #鍏抽棴杩炴帴
 
 def send_message(content):
-    url = 'https://oapi.dingtalk.com/robot/send?access_token=bcd8b541debeb4aa70f1a1a093abfb20565336b841fa18f9455ed060e682cb18'
+    url = 'url'
     pagrem = {
         "msgtype": "text",
         "text": {
